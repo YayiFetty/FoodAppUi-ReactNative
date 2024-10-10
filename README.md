@@ -1,0 +1,2 @@
+--import * as Haptics from 'expo-haptics';
+--npx expo install expo-haptics

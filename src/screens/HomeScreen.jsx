@@ -9,7 +9,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Categories from '../components/Categories';
 import axios from 'axios';
 import Recipes from '../components/Recipes';
-import HapticFeedback, { HapticFeedbackTypes } from "react-native-haptic-feedback";
+import * as Haptics from 'expo-haptics';
 
 const HomeScreen = () => {
   const ptop = useSafeAreaInsets();
@@ -35,10 +35,7 @@ const HomeScreen = () => {
 
     await getRecipes(category);
     
-    HapticFeedback.trigger(HapticFeedbackTypes.impactMedium, {
-      enableVibrateFallback: true,
-      ignoreAndroidSystemSettings: false,
-    });
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
   };
 
   const getCategories = async () => {
