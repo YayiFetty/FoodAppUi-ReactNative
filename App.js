@@ -1,11 +1,17 @@
-import { View, Text } from 'react-native'
-import React from 'react'
-import RootNavigation from './src/navigation/RootNavigation'
+import React from 'react';
+import { View } from 'react-native';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import RootNavigation from './src/navigation/RootNavigation';
+import { registerRootComponent } from 'expo';
 
-export default function App() {
+function App() {
   return (
-    <View className="flex-1">
-      <RootNavigation/>
-    </View>
-  )
+    <SafeAreaProvider>
+      <View style={{ flex: 1 }}>
+        <RootNavigation />
+      </View>
+    </SafeAreaProvider>
+  );
 }
+
+export default registerRootComponent(App);
